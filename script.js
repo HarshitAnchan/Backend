@@ -1,4 +1,4 @@
-const fs = require('fs');
+// const fs = require('fs');
 
 
 // fs.rename("hey.txt", "hello.txt", function(err){
@@ -24,4 +24,13 @@ const fs = require('fs');
 //     }else console.log("done");
 // })
 
+
+const http = require('http');
+
+const server = http.createServer(function(req, res){
+  res.end("hello tender coconut");
+})
+
+
+server.listen(3000);
 
