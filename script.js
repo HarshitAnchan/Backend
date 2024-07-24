@@ -1,36 +1,24 @@
-// const fs = require('fs');
+const express = require('express')
+const app = express()
 
 
-// fs.rename("hey.txt", "hello.txt", function(err){
-//     if(err){
-//         console.log(err);
-//     }else{
-//         console.log("done");
-//     }
-// })
+app.use(function(req, res, next){
+  console.log("middleware run");
+  next();
+});
+app.use(function(req, res, next){
+  console.log("ha chala run");
+  next();
+});
 
-// fs.copyFile("hello.txt", "./copy2/copy.txt", function(err){
-//     if(err) {
-//         console.log(err.message);
-//     }else{
-//         console.log("done");
-//     }
-// })
+app.get("/", function(req, res){
+  res.send("Tender Coconut")
 
+}) 
+app.get("/about", function(req, res){
+  res.send("about anna ")
 
-// fs.unlink("hello.txt", function(err){
-//     if(err) {
-//         console.log(err.message);
-//     }else console.log("done");
-// })
+}) 
 
 
-const http = require('http');
-
-const server = http.createServer(function(req, res){
-  res.end("hello tender coconut");
-})
-
-
-server.listen(3000);
-
+app.listen(3000)
